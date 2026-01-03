@@ -1,4 +1,3 @@
 Config = {}
 
-Config.Timezone = "America/Los_Angeles"
-Config.Update = 5 -- minutes
+Config.Timezone = "America/Los_Angeles" -- default "America/Los_Angeles" (examples: "Europe/Madrid", "Europe/Paris")
