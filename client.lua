@@ -1,0 +1,5 @@
+RegisterNetEvent("RealTime:UpdateTime")
+AddEventHandler("RealTime:UpdateTime", function(hour, minute)
+    NetworkOverrideClockTime(hour, minute, 0)
+    print("Synchronized with '" .. Config.Timezone .. "', now is " .. hour .. ":" .. minute)
+end)
