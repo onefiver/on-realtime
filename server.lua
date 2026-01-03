@@ -3,7 +3,7 @@ local function UpdateTime()
 
     PerformHttpRequest(url, function(code, data)
         if code ~= 200 then
-            print("^1[on-realtime] Error getting time from the API. Code: " .. code .. "^0")
+            print("^1[on-realtime] Error getting time from API. Code: " .. code .. "^0")
             return
         end
 
@@ -16,14 +16,17 @@ local function UpdateTime()
         -- Format 2024-01-05T21:33:14.123+01:00
         local hour = tonumber(string.sub(json.datetime, 12, 13))
         local minute = tonumber(string.sub(json.datetime, 15, 16))
+        local second = tonumber(string.sub(json.datetime, 18, 19))
 
-        TriggerClientEvent("RealTime:UpdateTime", -1, hour, minute)
+        TriggerClientEvent("RealTime:UpdateTime", -1, hour, minute, second)
     end)
 end
+
+print("Syncing timezone... (" .. Config.Timezone .. ")")
 
 CreateThread(function()
     while true do
         UpdateTime()
-        Wait(Config.Update * 60 * 1000)
+        Wait(1000)
     end
 end)
