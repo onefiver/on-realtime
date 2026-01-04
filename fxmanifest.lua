@@ -5,7 +5,8 @@ author 'onefiver'
 description 'Sync time with real world'
 version '1.0.1'
 
-shared_script 'config.lua'
-client_script 'client.lua'
-server_script 'server.lua'
+shared_script 'config.js'
+client_script 'client.js'
+server_script 'server.js'
+
 
